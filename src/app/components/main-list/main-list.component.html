@@ -1,0 +1,46 @@
+<div class="container pt-5" style="padding-bottom: 175px;">
+  <table class="table">
+    <thead>
+      <tr class='text-center'>
+        <th scope="col" (click)="sort('id')"><span class='clickable'>#</span></th>
+        <th scope="col" (click)="sort('year')"><span class='clickable'>Year</span></th>
+        <th scope="col" (click)="sort('type')"><span class='clickable'>Type</span></th>
+        <th scope="col" (click)="sort('mint')"><span class='clickable'>Mint</span></th>
+        <th scope="col" (click)="sort('composition')"><span class='clickable'>Composition</span></th>
+        <th scope="col" (click)="sort('variation')"><span class='clickable'>Variation</span></th>
+        <th scope="col" (click)="sort('strike')"><span class='clickable'>Strike</span></th>
+        <th scope="col" (click)="sort('grade')"><span class='clickable'>Grade</span></th>
+        <th scope="col" (click)="sort('company')"><span class='clickable'>Company</span></th>
+        <th scope="col" (click)="sort('date')"><span class='clickable'>Date</span></th>
+        <th scope="col" (click)="sort('price')"><span class='clickable'>Price</span></th>
+        <th scope="col" (click)="sort('shipping')"><span class='clickable'>Shipping</span></th>
+        <th scope="col" (click)="sort('label')"><span class='clickable'>Special Label</span></th>
+        <th scope="col" (click)="sort('offer')"><span class='clickable'>Best Offer</span></th>
+        <th scope="col" (click)="sort('comments')"><span class='clickable'>Comments</span></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let coin of coinData | orderBy: key: reverse: caseInsensitive' class='text-center'>
+        <th scope="row">{{coin.id}}</th>
+        <td>{{coin.year}}</td>
+        <td>{{coin.type}}</td>
+        <td>{{coin.mint}}</td>
+        <td>{{coin.composition}}</td>
+        <td>{{coin.variation}}</td>
+        <td>{{coin.strike}}</td>
+        <td>{{coin.grade}}</td>
+        <td>{{coin.company}}</td>
+        <td style='width: 100px'>{{coin.date | date: 'shortDate'}}</td>
+        <td style='text-align: right;'>{{coin.price | currency}}</td>
+        <td style='text-align: right;'>{{coin.shipping | currency}}</td>
+        <td>{{coin.label}}</td>
+        <td>{{coin.offer}}</td>
+        <td style='text-align: left;'>{{coin.comments}}</td>
+        <td><a routerLink='/edit/{{coin.id}}'><button class='btn btn-warning'>Edit</button></a></td>
+        <td><span (click)='deleteCoin(coin.id)'><button class='btn btn-danger'>Delete</button></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+</svg>
+<div *ngIf='successMessage' class="container alert alert-success d-flex align-items-center fade show" role="alert" style='max-width: 300px;'>
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <div>
+    Coin submitted successfully to database.
+  </div>
+  <button (click)='removeSuccessMessage()' class='ms-5 btn btn-primary'>X</button>
+</div>
+
+<form [formGroup]='addCoin' (ngSubmit)='saveCoinData()' class='container mt-5'>
+
+  <!-- FIRST ROW -->
+  <div class='row'>
+    <div class="mb-3 col form-group">
+      <label class='form-label' for="validationYear">Year</label>
+      <select class="form-select" formControlName='year' id="validationYear">
+        <option value="1950">1950</option>
+        <option value="1951">1951</option>
+        <option value="1952">1952</option>
+        <option value="1953">1953</option>
+        <option value="1954">1954</option>
+        <option value="1955">1955</option>
+        <option value="1956">1956</option>
+        <option value="1957">1957</option>
+        <option value="1958">1958</option>
+        <option value="1959">1959</option>
+        <option value="1960">1960</option>
+        <option value="1961">1961</option>
+        <option value="1962">1962</option>
+        <option value="1963">1963</option>
+        <option value="1964">1964</option>
+        <option value="1965">1965</option>
+        <option value="1966">1966</option>
+        <option value="1967">1967</option>
+        <option value="1968">1968</option>
+        <option value="1969">1969</option>
+        <option value="1970">1970</option>
+        <option value="1971">1971</option>
+        <option value="1972">1972</option>
+        <option value="1973">1973</option>
+        <option value="1974">1974</option>
+        <option value="1975">1975</option>
+        <option value="1976">1976</option>
+        <option value="1977">1977</option>
+        <option value="1978">1978</option>
+        <option value="1979">1979</option>
+        <option value="1980">1980</option>
+        <option value="1981">1981</option>
+        <option value="1982">1982</option>
+        <option value="1983">1983</option>
+        <option value="1984">1984</option>
+        <option value="1985">1985</option>
+        <option value="1986">1986</option>
+        <option value="1987">1987</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+      </select>
+    </div>
+
+    <div class="mb-3 col">
+      <label for="validationType" class="form-label">Type</label>
+      <select class="form-select" formControlName='type' id='validationType'>
+        <option value="1">1&cent;</option>
+        <option value="5">5&cent;</option>
+        <option value="10">10&cent;</option>
+        <option value="25">25&cent;</option>
+        <option value="50">50&cent;</option>
+        <option value="100">$1</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationMint" class="form-label">Mint</label>
+      <select class="form-select" formControlName='mint' id='validationMint'>
+        <option value="S">S</option>
+        <option value="D">D</option>
+        <option value="P">P</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationComposition" class="form-label">Composition</label>
+      <select class="form-select" formControlName='composition' id='validationComposition'>
+        <option value="Clad">Clad</option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+      </select>
+    </div>
+
+    <div class="mb-3 col">
+      <label for="validationVariation" class="form-label">Variation</label>
+      <select class="form-select" formControlName='variation' id='validationVariation'>
+        <option value="T1">Type 1</option>
+        <option value="T2">Type 2</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- SECOND ROW -->
+  <div class="row">
+    <div class="mb-3 col">
+      <label for="validationStrike" class="form-label">Strike</label>
+      <select class="form-select" formControlName='strike' id='validationStrike'>
+        <option value="PF">PF</option>
+        <option value="MS">MS</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationGrade" class="form-label">Grade</label>
+      <select class="form-select" formControlName='grade' id='validationGrade'>
+        <option value="70">70</option>
+        <option value="69">69</option>
+        <option value="68">68</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationCompany" class="form-label">Grading Company</label>
+      <select class="form-select" formControlName='company' id='validationCompany'>
+        <option value="NGC">NGC</option>
+        <option value="PCGS">PCGS</option>
+        <option value="ICG">ICG</option>
+        <option value="ANACS">ANACS</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- THIRD ROW -->
+  <div class="row">
+    <div class="mb-3 col">
+      <label for="validationDate" class="form-label">Date Sold</label>
+      <input type="date" class="form-control" formControlName='date' id='validationDate'>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationPrice" class="form-label">Price</label>
+      <span class='input-group'>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" formControlName='price' id='validationPrice'>
+      </span>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="validationShipping" class="form-label">Shipping</label>
+      <span class='input-group'>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" formControlName='shipping' id='validationShipping'>
+      </span>
+    </div>
+    
+    <div class="mt-5 col form-check form-switch ps-0">
+      <span class='align-offer'> 
+        <input class="form-check-input" type="checkbox" role="switch" formControlName='label' id='validationLabel'>
+        <label class="form-check-label ms-3" for="validationLabel">Special Label</label>
+      </span>
+    </div>
+
+    <div class="mt-5 col form-check form-switch ps-0">
+      <span class='align-offer'> 
+        <input class="form-check-input" type="checkbox" role="switch" formControlName='offer' id='validationOffer'>
+        <label class="form-check-label ms-3" for="validationOffer">Best Price Offer Accepted</label>
+      </span>
+    </div>
+  </div>
+  
+  <!-- FOURTH ROW -->
+  <div class="form-group">
+    <label for="validationComments">Comments</label>
+    <textarea class="form-control" rows="3" formControlName='comments' id='validationComments'></textarea>
+  </div>
+
+  <!-- FIFTH ROW -->
+<div>
+  
+</div>
+
+  <div class='pt-3'>
+    <button type='submit' class='btn btn-primary'>Submit</button>
+  </div>
+
+    <div class='pt-3 float-right d-flex'>
+      <button type='button' class='btn btn-warning float-right' (click)='clearForm()'>Reset</button>
+    </div>
+
+
+</form>

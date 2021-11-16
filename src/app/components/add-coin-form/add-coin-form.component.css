@@ -1,0 +1,10 @@
+.align-offer {
+  text-align: right;
+  display: flex;
+  justify-content: right;
+}
+
+input.ng-invalid,
+select.ng-invalid {
+  border-left: 5px solid rgb(255, 70, 70);
+}

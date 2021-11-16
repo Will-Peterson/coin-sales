@@ -1,0 +1,16 @@
+h1 {
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: black;
+  font-weight: 900;
+}
+
+a:hover {
+  color: rgb(224, 51, 51);
+}
+
+li {
+  padding: 30px;
+}

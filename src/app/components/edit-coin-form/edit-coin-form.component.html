@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+</svg>
+<div *ngIf='successMessage' class="container alert alert-success d-flex align-items-center fade show" role="alert" style='max-width: 300px;'>
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <div>
+    Coin updated successfully.
+  </div>
+  <button (click)='removeSuccessMessage()' class='ms-5 btn btn-primary'>X</button>
+</div>
+
+
+
+<form [formGroup]='editCoin' (ngSubmit)='updateCoin()' class='container mt-5'>
+
+  <!-- FIRST ROW -->
+  <div class='row'>
+    <div class="mb-3 col form-group">
+      <label class='form-label' for="validationDefault01">Year</label>
+      <select class="form-select" formControlName='year' id="validationDefault01">
+        <option value="1977">1977</option>
+        <option value="1978">1978</option>
+        <option value="1979">1979</option>
+        <option value="1980">1980</option>
+        <option value="1981">1981</option>
+        <option value="1982">1982</option>
+        <option value="1983">1983</option>
+        <option value="1984">1984</option>
+        <option value="1985">1985</option>
+        <option value="1986">1986</option>
+        <option value="1987">1987</option>
+        <option value="1988">1988</option>
+        <option value="1989">1989</option>
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+      </select>
+    </div>
+
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Type</label>
+      <select class="form-select" formControlName='type'>
+        <option value="1">1&cent;</option>
+        <option value="5">5&cent;</option>
+        <option value="10">10&cent;</option>
+        <option value="25">25&cent;</option>
+        <option value="50">50&cent;</option>
+        <option value="100">$1</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Mint</label>
+      <select class="form-select" formControlName='mint'>
+        <option value="S">S</option>
+        <option value="D">D</option>
+        <option value="P">P</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Variation</label>
+      <select class="form-select" formControlName='variation'>
+        <option value="T1">Type 1</option>
+        <option value="T2">Type 2</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- SECOND ROW -->
+  <div class="row">
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Strike</label>
+      <select class="form-select" formControlName='strike'>
+        <option value="PF">PF</option>
+        <option value="MS">MS</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Grade</label>
+      <select class="form-select" formControlName='grade'>
+        <option value="70">70</option>
+        <option value="69">69</option>
+        <option value="68">68</option>
+      </select>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Grading Company</label>
+      <select class="form-select" formControlName='company'>
+        <option value="NGC">NGC</option>
+        <option value="PCGS">PCGS</option>
+        <option value="ICG">ICG</option>
+        <option value="ANACS">ANACS</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- THIRD ROW -->
+  <div class="row">
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Date Sold</label>
+      <input type="date" class="form-control" id="exampleFormControlInput1" formControlName='date'>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Price</label>
+      <span class='input-group'>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName='price'>
+      </span>
+    </div>
+    
+    <div class="mb-3 col">
+      <label for="exampleFormControlInput1" class="form-label">Shipping</label>
+      <span class='input-group'>
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName='shipping'>
+      </span>
+    </div>
+    
+    <div class="mt-5 col form-check form-switch ps-0">
+      <span class='align-offer'> 
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" formControlName='label'>
+        <label class="form-check-label ms-3" for="flexSwitchCheckChecked">Special Label</label>
+      </span>
+    </div>
+
+    <div class="mt-5 col form-check form-switch ps-0">
+      <span class='align-offer'> 
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" formControlName='offer'>
+        <label class="form-check-label ms-3" for="flexSwitchCheckChecked">Best Price Offer Accepted</label>
+      </span>
+    </div>
+  </div>
+  
+  <!-- FOURTH ROW -->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comments</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName='comments'></textarea>
+  </div>
+
+  <!-- FIFTH ROW -->
+  <div class='pt-3'>
+    <button type='submit' class='btn btn-primary'>Update</button>
+  </div>
+</form>

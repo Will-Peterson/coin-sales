@@ -1,0 +1,14 @@
+a {
+  color: black;
+  font-weight: bold;
+}
+a:hover {
+  color: red;
+}
+button:hover {
+  background-color: rgb(200, 204, 204);
+}
+
+li {
+  padding: 20px;
+}
