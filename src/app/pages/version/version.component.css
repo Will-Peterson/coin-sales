@@ -8,15 +8,14 @@
   margin-left: 20px;
 }
 
-.bullet {
-
-}
-
 .added {
   background-color: green;
-  padding: 2px 9px 4px 10px;
+  padding: 2px 6px 3px 7px;
   margin-left: 8px;
   border-radius: 5px;
+  font-size: .6em;
+  font-weight: 700;
+  color: #111;
 }
 
 .added::before {
@@ -25,9 +24,12 @@
 
 .removed {
   background-color: red;
-  padding: 2px 9px 4px 10px;
+  padding: 2px 6px 3px 7px;
   margin-left: 8px;
   border-radius: 5px;
+  font-size: .6em;
+  font-weight: 700;
+  color: #111;
 }
 
 .removed::before {
@@ -36,9 +38,12 @@
 
 .changed {
   background-color: grey;
-  padding: 2px 9px 4px 10px;
+  padding: 2px 6px 3px 7px;
   margin-left: 8px;
   border-radius: 5px;
+  font-size: .6em;
+  font-weight: 700;
+  color: #111;
 }
 
 .changed::before {
